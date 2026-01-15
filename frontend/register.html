@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Bharadwaj Tirth Yatra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <!-- PAGE CONTENT -->
+  <main class="flex items-center justify-center px-4 py-12">
+    <div class="bg-white shadow-lg rounded-xl
+                w-full max-w-md p-6 sm:p-8">
+
+      <h2 class="text-2xl font-bold text-center text-orange-700">
+        Create Account
+      </h2>
+
+      <form class="mt-6 space-y-4">
+        <input type="text" id="regName"
+          placeholder="Full Name"
+          class="w-full border rounded px-3 py-2" />
+
+        <input type="email" id="regEmail"
+          placeholder="Email"
+          class="w-full border rounded px-3 py-2" />
+
+        <input type="password" id="regPassword"
+          placeholder="Password"
+          class="w-full border rounded px-3 py-2" />
+
+        <button type="button" onclick="register()"
+          class="w-full bg-green-600 hover:bg-green-700
+                 text-white py-3 rounded text-lg transition">
+          Register
+        </button>
+      </form>
+
+      <p class="text-center text-sm mt-4">
+        Already have an account?
+        <a href="login.html"
+           class="text-orange-600 font-semibold hover:underline">
+          Login
+        </a>
+      </p>
+
+    </div>
+  </main>
+  <script src="js/logout.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/navbar.js"></script>
+</body>
+</html>

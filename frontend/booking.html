@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Yatra | Bharadwaj Tirth Yatra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<div id="navbar"></div>
+
+<!-- HEADER -->
+<header class="bg-orange-700 text-white py-5 text-center">
+  <h1 class="text-xl sm:text-2xl font-bold">Book Your Tirth Yatra</h1>
+</header>
+
+<!-- BOOKING FORM -->
+<section class="max-w-4xl mx-auto px-4 py-10">
+  <div class="bg-white rounded-lg shadow p-6 sm:p-8">
+
+    <h2 id="pkgTitle" class="text-xl sm:text-2xl font-bold mb-4">
+      Loading package...
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- TRAVEL DATE -->
+      <div>
+        <label class="block text-sm font-medium mb-1">
+          Travel Date
+        </label>
+        <input type="date" id="travelDate" title="Travel Date"
+          class="w-full border rounded px-3 py-2">
+      </div>
+
+      <!-- PASSENGERS -->
+      <div>
+        <label class="block text-sm font-medium mb-1">
+          Number of Passengers
+        </label>
+        <select id="passengers" title="Number of Passengers"
+          class="w-full border rounded px-3 py-2">
+          <option value="1">1 Passenger</option>
+          <option value="2">2 Passengers</option>
+          <option value="3">3 Passengers</option>
+          <option value="4">4 Passengers</option>
+          <option value="5">5 Passengers</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- PRICE SUMMARY -->
+    <div class="mt-6 bg-gray-100 rounded p-4">
+      <p class="text-sm text-gray-600">Total Amount</p>
+      <p id="totalAmount"
+         class="text-2xl font-bold text-orange-600">
+         ₹0
+      </p>
+    </div>
+
+    <!-- ACTION -->
+    <button id="confirmBtn"
+      class="w-full mt-6 bg-green-600 hover:bg-green-700
+             text-white py-3 rounded text-lg">
+      Proceed to Confirm
+    </button>
+
+    <p class="text-center text-sm mt-4 text-gray-500">
+      Secure booking • No hidden charges
+    </p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-orange-700 text-white py-6 text-center text-sm">
+  © 2026 Bharadwaj Tirth Yatra. All rights reserved.
+</footer>
+
+<script src="js/data.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/navbar.js"></script>
+
+</body>
+</html>

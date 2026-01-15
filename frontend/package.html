@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yatra Details | Bharadwaj Tirth Yatra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<div id="navbar"></div>
+<!-- HEADER -->
+<header class="bg-orange-700 text-white py-5 px-4 text-center">
+  <h1 id="pkgTitle" class="text-xl sm:text-2xl font-bold">
+    Loading Package...
+  </h1>
+</header>
+
+<!-- IMAGE HERO -->
+<section class="max-w-6xl mx-auto px-4 py-6">
+  <div class="aspect-video rounded-lg overflow-hidden shadow">
+    <img id="pkgImage" class="w-full h-full object-cover" alt="">
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="max-w-6xl mx-auto px-4 pb-16">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- LEFT -->
+    <div class="lg:col-span-2 space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold">Overview</h2>
+        <p id="pkgLocation" class="mt-2 text-gray-700"></p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold">Itinerary</h2>
+        <ul id="pkgItinerary"
+            class="mt-3 list-disc list-inside space-y-2 text-gray-700">
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT (BOOKING CARD) -->
+    <div class="bg-white rounded-lg shadow p-6 h-fit sticky top-6">
+      <p class="text-sm text-gray-500">Starting From</p>
+      <p id="pkgPrice"
+         class="text-3xl font-bold text-orange-600"></p>
+
+      <p id="pkgDuration" class="mt-2 text-gray-600"></p>
+
+      <button
+        id="bookNowBtn"
+        class="w-full mt-6 bg-green-600 hover:bg-green-700
+               text-white py-3 rounded text-lg">
+        Book Now
+      </button>
+
+      <a href="https://wa.me/91XXXXXXXXXX"
+         class="block text-center mt-4 text-green-600 font-semibold">
+        WhatsApp Enquiry
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-orange-700 text-white py-6 text-center text-sm">
+  © 2026 Bharadwaj Tirth Yatra. All rights reserved.
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/package.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/navbar.js"></script>
+</body>
+</html>

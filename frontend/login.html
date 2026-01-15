@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login | Bharadwaj Tirth Yatra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  (function redirectIfLoggedIn() {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (token && user) {
+      // redirect based on role
+      if (user.role === "admin" || user.role === "superadmin") {
+        window.location.replace("admin/dashboard.html");
+      } else {
+        window.location.replace("index.html");
+      }
+    }
+  })();
+</script>
+
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="navbar"></div>
+    <section
+      class="min-h-[calc(100vh-80px)] flex items-center justify-center px-4"
+    >
+      <div class="bg-white shadow rounded-lg w-full max-w-md p-6 sm:p-8">
+        <h2 class="text-2xl font-bold text-center text-orange-700">Login</h2>
+        <!-- LOGIN TYPE -->
+        <div class="flex gap-4 justify-center mb-4">
+          <label class="flex items-center gap-2">
+            <input type="radio" name="loginType" value="user" checked />
+            User
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="radio" name="loginType" value="admin" />
+            Admin
+          </label>
+        </div>
+
+        <form class="mt-6 space-y-4">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Email"
+            class="w-full border rounded px-3 py-2"
+          />
+
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+            class="w-full border rounded px-3 py-2"
+          />
+
+          <button
+            type="button"
+            onclick="login()"
+            class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded text-lg"
+          >
+            Login
+          </button>
+        </form>
+
+        <p class="text-center text-sm mt-4">
+          New user?
+          <a href="register.html" class="text-orange-600 font-semibold">
+            Create account
+          </a>
+        </p>
+      </div>
+    </section>
+    <script src="js/logout.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/navbar.js"></script>
+    <!-- <script src="../js/admin.js"></script> -->
+
+  </body>
+</html>

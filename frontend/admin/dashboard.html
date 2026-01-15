@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard | Bharadwaj Tirth Yatra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ===== Recent Admin Activity ===== */
+    #auditLogList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 10px;
+      border-bottom: 1px solid #eaeaea;
+      border-radius: 8px;
+    }
+
+    .activity-icon {
+      min-width: 34px;
+      height: 34px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .activity-time {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 2px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+<!-- Mobile Overlay -->
+<div id="sidebarOverlay"
+     class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+
+<div class="min-h-screen flex">
+
+  <!-- ================= SIDEBAR ================= -->
+<aside id="adminSidebar"
+       class="fixed md:static inset-y-0 left-0 z-50
+              w-64 bg-white shadow-lg
+              transform -translate-x-full md:translate-x-0
+              transition-transform duration-300
+              flex flex-col">
+    <!-- Brand -->
+    <div class="px-6 py-5 border-b">
+      <h2 class="text-xl font-extrabold text-orange-700">
+        Admin Panel
+      </h2>
+      <p class="text-xs text-gray-500 mt-1">
+        Bharadwaj Tirth Yatra
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 py-6 space-y-1 text-sm font-medium">
+      <a href="dashboard.html" class="flex px-4 py-2 rounded-lg bg-orange-100 text-orange-700">📊 Dashboard</a>
+      <a href="users.html" class="flex px-4 py-2 rounded-lg hover:bg-gray-100">👤 Users</a>
+      <a href="bookings.html" class="flex px-4 py-2 rounded-lg hover:bg-gray-100">📦 Bookings</a>
+      <a href="payments.html" class="flex px-4 py-2 rounded-lg hover:bg-gray-100">💳 Payments</a>
+      <a href="profile.html" class="flex px-4 py-2 rounded-lg hover:bg-gray-100">⚙ Admin Profile</a>
+      <a href="../index.html" class="flex px-4 py-2 rounded-lg hover:bg-gray-100">🌐 Back to Site</a>
+    </nav>
+
+    <!-- Logout -->
+    <div class="px-4 py-4 border-t">
+      <button onclick="logout()"
+              class="w-full px-4 py-2 rounded-lg
+                     border border-red-300 text-red-600
+                     hover:bg-red-50">
+        Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="flex-1">
+
+    <!-- 🔶 ADMIN HEADER (A3) -->
+    <header class="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
+
+      <!-- Page Title -->
+      <div class="flex items-center gap-3">
+        <button id="sidebarToggle" class="md:hidden text-xl px-2 py-1 rounded hover:bg-gray-100">☰</button>
+        <h1 class="text-xl font-bold">Admin Dashboard</h1>
+      </div>
+
+      <!-- Admin Identity -->
+      <div class="flex items-center gap-4">
+
+        <div class="text-right">
+          <p id="adminName" class="text-sm font-semibold">
+            Admin
+          </p>
+          <span id="adminRole"
+                class="inline-block text-xs px-2 py-0.5 rounded-full
+                       bg-orange-100 text-orange-700 font-medium">
+            ADMIN
+          </span>
+        </div>
+
+        <button onclick="adminLogout()"
+                class="text-sm px-3 py-1.5 rounded-lg
+                       border border-red-300 text-red-600
+                       hover:bg-red-50">
+          Logout
+        </button>
+
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <section class="p-6">
+
+      <!-- STATS -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+          <p class="text-gray-500">Total Users</p>
+          <p id="totalUsers" class="text-2xl font-bold">—</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+          <p class="text-gray-500">Total Bookings</p>
+          <p id="totalBookings" class="text-2xl font-bold">—</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+          <p class="text-gray-500">Pending</p>
+          <p id="pendingBookings" class="text-2xl font-bold text-orange-600">—</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+          <p class="text-gray-500">Completed</p>
+          <p id="completedBookings" class="text-2xl font-bold text-green-600">—</p>
+        </div>
+
+      </div>
+
+      <!-- REVENUE -->
+      <div>
+        <h2 class="text-xl font-bold mb-4">Revenue</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+            <p class="text-gray-500">Total Revenue</p>
+            <p id="totalRevenue" class="text-2xl font-bold text-green-700">—</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+            <p class="text-gray-500">Today</p>
+            <p id="todayRevenue" class="text-2xl font-bold text-blue-700">—</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+            <p class="text-gray-500">Pending Amount</p>
+            <p id="pendingRevenue" class="text-2xl font-bold text-orange-600">—</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART -->
+      <div>
+        <h2 class="text-xl font-bold mb-4">Booking Trend (Last 7 Days)</h2>
+        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+          <canvas id="bookingChart" height="100"></canvas>
+        </div>
+      </div>
+
+      <!-- ACTIVITY -->
+      <div>
+        <h2 class="text-xl font-bold mb-4">Recent Admin Activity</h2>
+        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition">
+          <ul id="auditLogList" class="space-y-2 text-sm"></ul>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/admin-guard.js"></script>
+<script src="../js/admin-header.js"></script>
+<script src="../js/admin.js"></script>
+<script src="js/logout.js"></script>
+<script src="../js/admin-sidebar.js"></script>
+
+
+</body>
+</html>

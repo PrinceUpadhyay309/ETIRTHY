@@ -1,0 +1,78 @@
+MY-ETOUR/
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── middleware/
+│   │   └── auth.js
+│   │
+│   ├── models/
+│   │   ├── AuditLog.js
+│   │   ├── Booking.js
+│   │   ├── Package.js
+│   │   └── User.js
+│   │   
+│   ├── node_modules/
+│   │  
+│   ├── routes/
+│   │   ├── admin.js
+│   │   ├── auth.js
+│   │   ├── booking.js
+│   │   ├── packages.js
+│   │   └── payments.js
+│   │
+│   ├── utils/
+│   │   └── logActivity.js
+│   │ 
+│   ├── .env
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
+│
+├── frontend/
+│   ├── admin/
+│   │   ├── bookings.html
+│   │   ├── dashboard.html
+│   │   ├── payments.html
+│   │   └── users.html
+│   │
+│   ├── assets/
+│   │   ├── css/
+│   │   │   ├── navbar.css
+│   │   │   └── profile-dropdown.css
+│   │   │
+│   │   ├── images/
+│   │   │   └── avatar-default.png
+│   │   │
+│   │   └── js/
+│   │       ├── profile-dropdown.js
+│   │       └── auth.js
+│   │
+│   ├── components
+│   │   ├── navbar.html
+│   │
+│   ├── js/
+│   │   ├── auth.js
+│   │   ├── admin.js
+│   │   ├── bookings.js
+│   │   ├── my-bookings.js
+│   │   ├── package.js
+│   │   ├── packages.js
+│   │   ├── data.js
+│   │   └── navbar.js
+│   │
+│   ├── utils/
+│   │   └── invoice.js
+│   │
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── packages.html
+│   ├── package.html
+│   ├── booking.html
+│   ├── my-bookings.html
+│   └── admin.html
+│   │
+│   ├── Tree of This Folder
+
+

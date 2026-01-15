@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+<div id="navbar"></div>
+
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <h1 class="text-2xl font-bold text-orange-700 mb-6">
+    Admin Dashboard
+  </h1>
+
+  <!-- USERS -->
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-4">Users</h2>
+    <div id="usersTable" class="bg-white shadow rounded p-4"></div>
+  </section>
+
+  <!-- BOOKINGS -->
+  <section>
+    <h2 class="text-xl font-semibold mb-4">Bookings</h2>
+    <div id="bookingsTable" class="bg-white shadow rounded p-4"></div>
+  </section>
+</div>
+<script src="js/logout.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
